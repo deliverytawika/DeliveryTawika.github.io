@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Telegram Bot</title>
+	<title>Telegram Bot Order Form</title>
 </head>
 <body>
-	<h1>Telegram Bot</h1>
-	<div>
-		<label>Name:</label>
+	<h1>Telegram Bot Order Form</h1>
+
+	<form>
+		<label for="name">Name:</label>
 		<input type="text" id="name">
-	</div>
-	<div>
-		<label>Phone Number:</label>
-		<input type="tel" id="phonenumber">
-	</div>
-	<div>
-		<label>Order:</label>
+
+		<label for="phone">Phone Number:</label>
+		<input type="text" id="phone">
+
+		<label for="order">Order:</label>
 		<textarea id="order"></textarea>
-	</div>
-	<div>
-		<label>Location:</label>
+
+		<label for="location">Location:</label>
 		<input type="text" id="location">
-	</div>
-	<div>
-		<button onclick="sendData()">Send Message</button>
-	</div>
+
+		<button type="button" onclick="sendOrder()">Send Order</button>
+	</form>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
