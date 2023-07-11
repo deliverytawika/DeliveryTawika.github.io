@@ -12,7 +12,7 @@ function sendOrder() {
         url: "https://api.telegram.org/bot6351918844:AAGcj7hXJie0jFm_-7ZElanCretnIY7Kufg/sendMessage",
         type: "POST",
         data: {
-            chat_id: "<YOUR_CHAT_ID>",
+            chat_id: "5879421948",
             text: "New Order Details:\n"
                 + "Order Number: " + orderNumber + "\n"
                 + "Name: " + name + "\n"
