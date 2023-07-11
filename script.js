@@ -21,13 +21,20 @@ function sendOrder() {
                 + "Location: " + location
         },
         success: function(response) {
-            var successMessage = "Order submitted successfully! Your order number is: " + orderNumber
-                + "\n\nOrder Details:\n"
-                + "Name: " + name + "\n"
-                + "Phone Number: " + phone + "\n"
-                + "Order: " + order + "\n"
-                + "Location: " + location;
-            showSuccessMessage(successMessage);
+            var successMessage = $("<div>")
+                .addClass("success-message")
+                .append($("<p>").text("Order submitted successfully! Your order number is: " + orderNumber))
+                .append($("<p>").text("Order Details:"))
+                .append($("<ul>")
+                    .append($("<li>").text("Name: " + name))
+                    .append($("<li>").text("Phone Number: " + phone))
+                    .append($("<li>").text("Order: " + order))
+                    .append($("<li>").text("Location: " + location))
+                );
+            $("body").append(successMessage);
+            setTimeout(function() {
+                successMessage.remove();
+            }, 5000);
             resetForm();
         },
         error: function(xhr, status, error) {
@@ -51,14 +58,4 @@ function resetForm() {
     $("#phone").val("");
     $("#order").val("");
     $("#location").val("");
-}
-
-function showSuccessMessage(message) {
-    var successMessage = $("<div>")
-        .addClass("success-message")
-        .append($("<p>").text(message));
-    $("body").append(successMessage);
-    setTimeout(function() {
-        successMessage.remove();
-    }, 5000);
 }
