@@ -2,27 +2,125 @@
 <html>
 <head>
 	<title>Telegram Bot Order Form</title>
+	<style>
+		body {
+			background: linear-gradient(to bottom, #fa7e1e, #fff);
+			font-family: Arial, sans-serif;
+			color: #333;
+			padding: 20px;
+		}
+		
+		form {
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		
+		label, input, textarea {
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		
+		input[type="text"], textarea {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			font-size: 16px;
+			font-family: Arial, sans-serif;
+		}
+		
+		textarea {
+			min-height: 100px;
+		}
+		
+		button[type="button"] {
+			background-color: #fa7e1e;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 20px;
+			transition: background-color 0.3s ease;
+		}
+		
+		button[type="button"]:hover {
+			background-color: #ff944d;
+		}
+		
+		.success-message {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			background-color: #0f9d58;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+			display: none;
+			z-index: 999;
+		}
+		
+		.success-message.show {
+			display: block;
+		}
+	</style>
 </head>
 <body>
 	<h1>Telegram Bot Order Form</h1>
 
 	<form>
 		<label for="name">Name:</label>
-		<input type="text" id="name">
+		<input type="text" id="name" required>
 
 		<label for="phone">Phone Number:</label>
-		<input type="text" id="phone">
+		<input type="text" id="phone" required>
 
 		<label for="order">Order:</label>
-		<textarea id="order"></textarea>
+		<textarea id="order" required></textarea>
 
 		<label for="location">Location:</label>
-		<input type="text" id="location">
+		<input type="text" id="location" required>
 
 		<button type="button" onclick="sendOrder()">Send Order</button>
 	</form>
 
+	<div class="success-message">
+		<p>Your order has been submitted successfully! Your order number is: <span id="order-number"></span></p>
+		<p>Order Details:</p>
+		<ul id="order-details">
+		</ul>
+	</div>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="script.js"></script>
+
+	<script>
+	// Show success message when order is submitted successfully
+	function showSuccessMessage(orderNumber, name, phone, order, location) {
+		$("#order-number").text(orderNumber);
+		$("#order-details").empty();
+		$("#order-details").append("<li>Name: " + name + "</li>");
+		$("#order-details").append("<li>Phone Number: " + phone + "</li>");
+		$("#order-details").append("<li>Order: " + order + "</li>");
+		$("#order-details").append("<li>Location: " + location + "</li>");
+		$(".success-message").addClass("show");
+		// Hide success message after 5 seconds
+		setTimeout(function() {
+			$(".success-message").removeClass("show");
+		}, 5000);
+	}
+	</script>
 </body>
 </html>
