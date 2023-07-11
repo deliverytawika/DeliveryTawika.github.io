@@ -21,7 +21,13 @@ function sendOrder() {
                 + "Location: " + location
         },
         success: function(response) {
-            alert("Order submitted successfully! Your order number is: " + orderNumber);
+            var successMessage = "Order submitted successfully! Your order number is: " + orderNumber
+                + "\n\nOrder Details:\n"
+                + "Name: " + name + "\n"
+                + "Phone Number: " + phone + "\n"
+                + "Order: " + order + "\n"
+                + "Location: " + location;
+            showSuccessMessage(successMessage);
             resetForm();
         },
         error: function(xhr, status, error) {
@@ -45,4 +51,14 @@ function resetForm() {
     $("#phone").val("");
     $("#order").val("");
     $("#location").val("");
+}
+
+function showSuccessMessage(message) {
+    var successMessage = $("<div>")
+        .addClass("success-message")
+        .append($("<p>").text(message));
+    $("body").append(successMessage);
+    setTimeout(function() {
+        successMessage.remove();
+    }, 5000);
 }
