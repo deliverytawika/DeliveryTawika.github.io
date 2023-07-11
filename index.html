@@ -8,9 +8,6 @@
 			font-family: Arial, sans-serif;
 			color: #333;
 			padding: 20px;
-			position: relative;
-			min-height: 100vh;
-			box-sizing: border-box;
 		}
 		
 		form {
@@ -20,8 +17,6 @@
 			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 			max-width: 600px;
 			margin: 0 auto;
-			position: relative;
-			z-index: 1;
 		}
 		
 		h1 {
@@ -66,16 +61,16 @@
 		
 		.success-message {
 			position: fixed;
-			bottom: 0;
-			left: 0;
+			top: 10px;
+			right: 10px;
 			background: linear-gradient(to bottom, #0f9d58, #fff);
 			color: #333;
-			padding: 20px;
-			border-radius: 10px 10px 0 0;
+			padding: 10px;
+			border-radius: 5px;
 			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 			display: none;
-			z-index: 2;
-			max-width: 600px;
+			z-index: 999;
+			max-width: 300px;
 		}
 		
 		.success-message.show {
@@ -133,40 +128,9 @@
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="script.js"></script>
+
 	<script>
-	// Send order data to Telegram bot API endpoint via AJAX POST request
-	function sendOrder() {
-		var name = $("#name").val();
-		var phone = $("#phone").val();
-		var order = $("#order").val();
-		var location = $("#location").val();
-	
-		// Generate order number
-		var orderNumber = generateOrderNumber();
-	
-		// Send order data to Telegram bot API endpoint via AJAX POST request
-		$.ajax({
-			url: "https://api.telegram.org/botbot6351918844:AAGcj7hXJie0jFm_-7ZElanCretnIY7Kufg/sendMessage",
-			type: "POST",
-			data: {
-				chat_id: "5879421948",
-				text: "New Order Details:\n"
-						+ "Order Number: " + orderNumber + "\n"
-						+ "Name: " + name + "\n"
-						+ "Phone Number: " + phone + "\n"
-						+ "Order: " + order + "\n"
-						+ "Location: " + location
-			},
-			success: function(response) {
-				showSuccessMessage(orderNumber, name, phone, order, location);
-				resetForm();
-			},
-			error: function(xhr, status, error) {
-				alert("There was an error submitting the order: " + error);
-			}
-		});
-	}
-	
 	// Show success message with submitted data when order is submitted successfully
 	function showSuccessMessage(orderNumber, name, phone, order, location) {
 		$(".order-number").text(orderNumber);
@@ -183,26 +147,6 @@
 		setTimeout(function() {
 			$(".success-message").removeClass("show");
 		}, 5000);
-	}
-	
-	// Generate order number
-	function generateOrderNumber() {
-		var date = new Date();
-		var orderNumber = "ORD-" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "-" + getRandomInteger(1000, 9999);
-		return orderNumber;
-	}
-	
-	// Generate a random integer between min and max (inclusive)
-	function getRandomInteger(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
-	
-	// Clear input fields
-	function resetForm() {
-		$("#name").val("");
-		$("#phone").val("");
-		$("#order").val("");
-		$("#location").val("");
 	}
 	</script>
 </body>
