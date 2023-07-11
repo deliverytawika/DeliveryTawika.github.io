@@ -61,4 +61,4 @@ function showSuccessMessage(message) {
     setTimeout(function() {
         successMessage.remove();
     }, 5000);
-} 
+}
