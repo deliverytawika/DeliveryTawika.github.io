@@ -18,6 +18,9 @@ $(document).ready(function() {
         // Send the order data to the server or perform any necessary actions
         // ...
 
+        // Generate a random order number between 1000 and 9999
+        var orderNumber = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+
         // Send the order data to the Telegram bot
         var message = "New Order\n\nName: " + formData.name + "\nPhone: " + formData.phone + "\nOrder: " + formData.order + "\nLocation: " + formData.location + "\nOrder Number: ORD-" + orderNumber;
         sendTelegramMessage(message);
@@ -27,9 +30,6 @@ $(document).ready(function() {
 
         // Reset form fields
         $("#orderForm").trigger("reset");
-
-        // Increment order number for next order
-        orderNumber++;
     });
 
     function showSuccessMessage(name, phone, order, location, orderNumber) {
@@ -50,8 +50,8 @@ $(document).ready(function() {
     }
 
     function sendTelegramMessage(message) {
-        var telegramBotToken = "YOUR_TELEGRAM_BOT_TOKEN";
-        var telegramChatId = "YOUR_TELEGRAM_CHAT_ID";
+        var telegramBotToken = "6351918844:AAGcj7hXJie0jFm_-7ZElanCretnIY7Kufg";
+        var telegramChatId = "5879421948";
 
         var telegramApiUrl = "https://api.telegram.org/bot" + telegramBotToken + "/sendMessage";
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
             }
         });
     }
-
+});
     var orderNumber = 1;
 
 });
