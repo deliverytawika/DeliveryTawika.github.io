@@ -54,7 +54,7 @@ $(document).ready(function() {
         // Hide success message after 5 seconds
         setTimeout(function() {
             $(".success-message").removeClass("show");
-        }, 5000);
+        }, 8000);
     }
 
     function sendTelegramMessage(message) {
