@@ -81,16 +81,20 @@ form button[type="submit"]:hover {
 }
 
 .success-message {
-    display: none;
-    background-color: #0f9d58;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-    width: 300px;
-    margin: auto;
-    margin-top: 2rem;
-    text-align: center;
+  display: none;
+  background-color: #0f9d58;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  width: 300px;
+  margin: auto;
+  margin-top: 2rem;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
 }
 
 .success-message.show {
