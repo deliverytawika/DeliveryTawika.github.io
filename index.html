@@ -107,26 +107,26 @@
 	<h1>Delivery Tawika</h1>
 
 	<form>
-		<label for="name">Name:</label>
+		<label for="name">يرجى إدخال اسمك من فضلك:</label>
 		<input type="text" id="name" required>
 
-		<label for="phone">Phone Number:</label>
+		<label for="phone">يرجى ادخال رقم الهاتف الجوال:</label>
 		<input type="text" id="phone" required>
 
-		<label for="order">Order:</label>
+		<label for="order">يرجى ادخال نوع الطلبية الخاصة بك:</label>
 		<textarea id="order" required></textarea>
 
-		<label for="location">Location:</label>
+		<label for="location">يرجى ادخال مكان الطلبية او مكان وصول الطلبية:</label>
 		<input type="text" id="location" required>
 
 		<button type="button" onclick="sendOrder()">Place Order</button>
 	</form>
 
 	<div class="success-message">
-		<h2>Order Placed Successfully</h2>
-		<p>Order Details:</p>
+		<h2>تمت العملية بنجاح</h2>
+		<p>تفاصيل الطلبية الخاصة بك:</p>
 		<ul class="order-details"></ul>
-		<p>Order Number: <span class="order-number"></span></p>
+		<p>رقم الطلبية: <span class="order-number"></span></p>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
