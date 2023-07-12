@@ -145,11 +145,11 @@
             // ...
 
             // Send the order data to the Telegram bot
-            var message = "New Order\nName: " + name + "\nPhone Number: " + phone + "\nOrder: " + order + "\nLocation: " + location;
+            var orderNumber = generateOrderNumber();
+            var message = "New Order\nName: " + name + "\nPhone Number: " + phone + "\nOrder: " + order + "\nLocation: " + location + "\nOrder Number: " + orderNumber;
             sendTelegramMessage(message);
 
             // Show success message with submitted data and order number
-            var orderNumber = generateOrderNumber();
             showSuccessMessage(name, phone, order, location, orderNumber);
 
             // Reset form fields
@@ -204,4 +204,5 @@
         }
     </script>
 </body>
-</html>
+    </html>
+    
