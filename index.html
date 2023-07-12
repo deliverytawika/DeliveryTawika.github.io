@@ -1,179 +1,207 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Delivery Tawika</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			background: linear-gradient(to bottom, #fa7e1e, #fff);
-			font-family: Arial, sans-serif;
-			padding: 20px;
-		}
-		
-		form {
-			padding: 20px;
-			background-color: #fff;
-			border-radius: 10px;
-			box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-			max-width: 500px;
-			margin: 0 auto;
-		}
-		
-		h1 {
-			text-align: center;
-			margin-bottom: 30px;
-			font-size: 26px;
-		}
-		
-		label, input, textarea {
-			display: block;
-			margin-bottom: 20px;
-			width: 100%;
-			box-sizing: border-box;
-			font-size: 20px;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-		}
-		
-		textarea {
-			min-height: 150px;
-		}
-		
-		button[type="button"] {
-			background-color: #f22e4b;
-			color: #fff;
-			border: none;
-			padding: 15px 25px;
-			border-radius: 5px;
-			font-size: 20px;
-			cursor: pointer;
-			margin-top: 20px;
-			transition: background-color 0.3s ease;
-			box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-		}
-		
-		button[type="button"]:hover {
-			background-color: #ff944d;
-		}
-		
-		.success-message {
-			position: fixed;
-			top: 10px;
-			right: 10px;
-			background: #0f9d58; /* Green Color */
-			color: #fff;
-			padding: 20px;
-			border-radius: 10px;
-			box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-			display: none;
-			z-index: 999;
-			max-width: 350px;
-			font-size: 18px;
-		}
-		
-		.success-message.show {
-			display: block;
-		}
-		
-		.order-details {
-			margin: 0;
-			padding-left: 0;
-			list-style-type: none;
-		}
-		
-		.order-details li {
-			margin-bottom: 15px;
-		}
-		
-		.order-details li:first-child {
-			font-weight: bold;
-			margin-bottom: 25px;
-		}
-		
-		.order-number {
-			background-color: #fff;
-			color: #0f9d58; /* Green Color */
-			padding: 10px 20px;
-			border-radius: 5px;
-			display: inline-block;
-			font-size: 22px;
-			margin-bottom: 20px;
-		}
-	</style>
+    <title>Delivery Tawika</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #fa7e1e, #fff);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+
+        label, input, textarea {
+            display: block;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            min-height: 150px;
+        }
+
+        button[type="button"] {
+            background-color: #f22e4b;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+        }
+
+        button[type="button"]:hover {
+            background-color: #ff944d;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #0f9d58;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 999;
+            max-width: 350px;
+            font-size: 18px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .order-details {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .order-details li {
+            margin-bottom: 10px;
+        }
+
+        .order-details li:first-child {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .order-number {
+            background-color: #fff;
+            color: #0f9d58;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-	<h1>Delivery Tawika</h1>
+    <h1>توصيل توايكة</h1>
 
-	<form>
-		<label for="name">Name:</label>
-		<input type="text" id="name" required>
+    <form>
+        <label for="name">يرجى إدخال اسمك من فضلك:</label>
+        <input type="text" id="name" required>
 
-		<label for="phone">Phone Number:</label>
-		<input type="text" id="phone" required>
+        <label for="phone">يرجى ادخال رقم الهاتف الجوال:</label>
+        <input type="text" id="phone" required>
 
-		<label for="order">Order:</label>
-		<textarea id="order" required></textarea>
+        <label for="order">يرجى ادخال نوع الطلبية الخاصة بك:</label>
+        <textarea id="order" required></textarea>
 
-		<label for="location">Location:</label>
-		<input type="text" id="location" required>
+        <label for="location">يرجى ادخال مكان الطلبية او مكان وصول الطلبية:</label>
+        <input type="text" id="location" required>
 
-		<button type="button" onclick="sendOrder()">Place Order</button>
-	</form>
+        <button type="button" onclick="sendOrder()">أرسل الطلبية</button>
+    </form>
 
-	<div class="success-message">
-		<div class="order-number"></div>
-		<ul class="order-details"></ul>
-	</div>
+    <div class="success-message">
+        <h2>تمت العملية بنجاح</h2>
+        <p>تفاصيل الطلبية الخاصة بك:</p>
+        <ul class="order-details"></ul>
+        <p>رقم الطلبية: <span class="order-number"></span></p>
+    </div>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 
-	<script>
-		function sendOrder() {
-			var name = $("#name").val();
-			var phone = $("#phone").val();
-			var order = $("#order").val();
-			var location = $("#location").val();
-			
-			// Perform validation or additional checks if needed
-			
-			// Send the order data to the server or perform any necessary actions
-			// ...
+    <script>
+        function sendOrder() {
+            var name = $("#name").val();
+            var phone = $("#phone").val();
+            var order = $("#order").val();
+            var location = $("#location").val();
 
-			// Show success message with submitted data and order number
-			var orderNumber = generateOrderNumber();
-			showSuccessMessage(name, phone, order, location, orderNumber);
-			
-			// Reset form fields
-			$("#name").val("");
-			$("#phone").val("");
-			$("#order").val("");
-			$("#location").val("");
-		}
+            // Perform validation or additional checks if needed
 
-		function generateOrderNumber() {
-			var randomNum = Math.floor(Math.random() * 10000);
-			return "ORD-" + randomNum;
-		}
+            // Send the order data to the server or perform any necessary actions
+            // ...
 
-		function showSuccessMessage(name, phone, order, location, orderNumber) {
-			$(".order-number").text("Order Placed Successfully");
-			
-			$(".order-details").empty();
-			$(".order-details").append("<li>Name: " + name + "</li>");
-			$(".order-details").append("<li>Phone Number: " + phone + "</li>");
-			$(".order-details").append("<li>Order: " + order + "</li>");
-			$(".order-details").append("<li>Location: " + location + "</li>");
-			$(".order-details").append("<li>Order Number: " + orderNumber + "</li>");
-			
-			$(".success-message").addClass("show");
-			
-			// Hide success message after 5 seconds
-			setTimeout(function() {
-				$(".success-message").removeClass("show");
-			}, 5000);
-		}
-	</script>
+            // Send the order data to the Telegram bot
+            var message = "New Order\nName: " + name + "\nPhone Number: " + phone + "\nOrder: " + order + "\nLocation: " + location;
+            sendTelegramMessage(message);
+
+            // Show success message with submitted data and order number
+            var orderNumber = generateOrderNumber();
+            showSuccessMessage(name, phone, order, location, orderNumber);
+
+            // Reset form fields
+            $("#name").val("");
+            $("#phone").val("");
+            $("#order").val("");
+            $("#location").val("");
+        }
+
+        function generateOrderNumber() {
+            var randomNum = Math.floor(Math.random() * 10000);
+            return "ORD-" + randomNum;
+        }
+
+        function showSuccessMessage(name, phone, order, location, orderNumber) {
+            $(".order-details").empty();
+            $(".order-details").append("<li>اسم: " + name + "</li>");
+            $(".order-details").append("<li>رقم الهاتف: " + phone + "</li>");
+            $(".order-details").append("<li>نوع الطلبية: " + order + "</li>");
+            $(".order-details").append("<li>مكان الطلبية: " + location + "</li>");
+
+            $(".order-number").text(orderNumber);
+
+            $(".success-message").addClass("show");
+
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                $(".success-message").removeClass("show");
+            }, 7000);
+        }
+
+        function sendTelegramMessage(message) {
+            var telegramBotToken = "6351918844:AAGcj7hXJie0jFm_-7ZElanCretnIY7Kufg";
+            var telegramChatId = "5879421948";
+
+            var telegramApiUrl = "https://api.telegram.org/bot" + telegramBotToken + "/sendMessage";
+
+            $.ajax({
+                type: "POST",
+                url: telegramApiUrl,
+                data: {
+                    chat_id: telegramChatId,
+                    text: message
+                },
+                success: function(response) {
+                    console.log("Telegram message sent successfully");
+                },
+                error: function(error) {
+                    console.error("Error sending Telegram message: " + error);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
