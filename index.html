@@ -9,22 +9,22 @@
 			font-family: Arial, sans-serif;
 			padding: 20px;
 		}
-		
+
 		form {
-			padding: 20px;
+			max-width: 500px;
+			margin: 0 auto;
 			background-color: #fff;
 			border-radius: 10px;
 			box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-			max-width: 500px;
-			margin: 0 auto;
+			padding: 20px;
 		}
-		
+
 		h1 {
 			text-align: center;
-			margin-bottom: 30px;
 			font-size: 26px;
+			margin-bottom: 30px;
 		}
-		
+
 		label, input, textarea {
 			display: block;
 			margin-bottom: 20px;
@@ -35,11 +35,11 @@
 			border: 1px solid #ccc;
 			border-radius: 5px;
 		}
-		
+
 		textarea {
 			min-height: 150px;
 		}
-		
+
 		button[type="button"] {
 			background-color: #f22e4b;
 			color: #fff;
@@ -52,16 +52,16 @@
 			transition: background-color 0.3s ease;
 			box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 		}
-		
+
 		button[type="button"]:hover {
 			background-color: #ff944d;
 		}
-		
+
 		.success-message {
 			position: fixed;
 			top: 10px;
 			right: 10px;
-			background: #0f9d58; /* Green Color */
+			background: #0f9d58;
 			color: #fff;
 			padding: 20px;
 			border-radius: 10px;
@@ -71,29 +71,30 @@
 			max-width: 350px;
 			font-size: 18px;
 		}
-		
+
 		.success-message.show {
 			display: block;
 		}
-		
+
 		.order-details {
 			margin: 0;
-			padding-left: 0;
+			padding: 0;
 			list-style-type: none;
+			margin-bottom: 20px;
 		}
-		
+
 		.order-details li {
-			margin-bottom: 15px;
+			margin-bottom: 10px;
 		}
-		
+
 		.order-details li:first-child {
 			font-weight: bold;
-			margin-bottom: 25px;
+			margin-bottom: 15px;
 		}
-		
+
 		.order-number {
 			background-color: #fff;
-			color: #0f9d58; /* Green Color */
+			color: #0f9d58;
 			padding: 10px 20px;
 			border-radius: 5px;
 			display: inline-block;
@@ -122,8 +123,10 @@
 	</form>
 
 	<div class="success-message">
-		<div class="order-number"></div>
+		<h2>Order Placed Successfully</h2>
+		<p>Order Details:</p>
 		<ul class="order-details"></ul>
+		<p>Order Number: <span class="order-number"></span></p>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -135,16 +138,16 @@
 			var phone = $("#phone").val();
 			var order = $("#order").val();
 			var location = $("#location").val();
-			
+
 			// Perform validation or additional checks if needed
-			
+
 			// Send the order data to the server or perform any necessary actions
 			// ...
 
 			// Show success message with submitted data and order number
 			var orderNumber = generateOrderNumber();
 			showSuccessMessage(name, phone, order, location, orderNumber);
-			
+
 			// Reset form fields
 			$("#name").val("");
 			$("#phone").val("");
@@ -158,17 +161,16 @@
 		}
 
 		function showSuccessMessage(name, phone, order, location, orderNumber) {
-			$(".order-number").text("Order Placed Successfully");
-			
 			$(".order-details").empty();
 			$(".order-details").append("<li>Name: " + name + "</li>");
 			$(".order-details").append("<li>Phone Number: " + phone + "</li>");
 			$(".order-details").append("<li>Order: " + order + "</li>");
 			$(".order-details").append("<li>Location: " + location + "</li>");
-			$(".order-details").append("<li>Order Number: " + orderNumber + "</li>");
-			
+
+			$(".order-number").text(orderNumber);
+
 			$(".success-message").addClass("show");
-			
+
 			// Hide success message after 5 seconds
 			setTimeout(function() {
 				$(".success-message").removeClass("show");
@@ -176,4 +178,5 @@
 		}
 	</script>
 </body>
-</html>
+	</html>
+	
