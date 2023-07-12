@@ -1,217 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Delivery Tawika</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: linear-gradient(to bottom, #fa7e1e, #fff);
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 26px;
-            margin-bottom: 30px;
-        }
-
-        label, input, textarea {
-            display: block;
-            margin-bottom: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        textarea {
-            min-height: 150px;
-        }
-
-        button[type="button"] {
-            background-color: #f22e4b;
-            color: #fff;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 5px;
-            font-size: 20px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .success-window {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .success-message {
-            display: none;
-            background-color: #0f9d58;
-            color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-            width: 300px;
-            text-align: center;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .order-details {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            margin-bottom: 20px;
-        }
-
-        .order-details li {
-            margin-bottom: 10px;
-        }
-
-        .order-details li:first-child {
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .order-number {
-            background-color: #fff;
-            color: #0f9d58;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: inline-block;
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Delivery Tawika</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Delivery Tawika</h1>
-   
-    <form>
-        <label for="name">يرجى إدخال اسمك من فضلك:</label>
-        <input type="text" id="name" required>
-
-        <label for="phone">يرجى ادخال رقم الهاتف الجوال:</label>
-        <input type="text" id="phone" required>
-
-        <label for="order">يرجى ادخال نوع الطلبية الخاصة بك:</label>
-        <textarea id="order" required></textarea>
-
-        <label for="location">يرجى ادخال مكان الطلبية او مكان وصول الطلبية:</label>
-        <input type="text" id="location" required>
-
-        <button id="submit-order" type="button">أرسل الطلبية</button>
-    </form>
-
-    <div class="success-window">
-        <div class="success-message">
-            <h2>Your order has been submitted successfully!</h2>
-            <p>Order details:</p>
-            <ul class="order-details"></ul>
-            <p>Order number: <span class="order-number"></span></p>
+    <header>
+        <h1>Delivery Tawika</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <form id="orderForm">
+                <h2>Order Now</h2>
+                <div class="form-control">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-control">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-control">
+                    <label for="order">Order*</label>
+                    <textarea id="order" name="order" placeholder="Enter your order details" required></textarea>
+                </div>
+                <div class="form-control">
+                    <label for="location">Delivery Location*</label>
+                    <input type="text" id="location" name="location" placeholder="Enter the delivery location" required>
+                </div>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Submit Order</button>
+            </form>
+            <div class="success-message">
+                <h2>Your order has been submitted successfully!</h2>
+                <p>Order details:</p>
+                <ul class="order-details"></ul>
+                <p>Order number: <span class="order-number"></span></p>
+            </div>
         </div>
-    </div>
-
+    </main>
+    <footer>
+        <p>&copy; 2021 Delivery Tawika. All rights reserved.</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        var orderNumber = 1;
-
-        function sendOrder() {
-            var name = $("#name").val();
-            var phone = $("#phone").val();
-            var order = $("#order").val();
-            var location = $("#location").val();
-
-            // Perform validation or additional checks if needed
-
-            // Send the order data to the server or perform any necessary actions
-            // ...
-
-            // Send the order data to the Telegram bot
-            var message = "New Order\n\nName: " + name + "\nPhone: " + phone + "\nOrder: " + order + "\nLocation: " + location + "\nOrder Number: ORD-" + orderNumber;
-            sendTelegramMessage(message);
-
-            // Show success message with submitted data and order number
-            showSuccessMessage(name, phone, order, location, orderNumber);
-
-            // Reset form fields
-            $("#name").val("");
-            $("#phone").val("");
-            $("#order").val("");
-            $("#location").val("");
-
-            // Increment order number for next order
-            orderNumber++;
-        }
-
-        function showSuccessMessage(name, phone, order, location, orderNumber) {
-            $(".order-details").empty();
-            $(".order-details").append("<li>Name: " + name + "</li>");
-            $(".order-details").append("<li>Phone: " + phone + "</li>");
-            $(".order-details").append("<li>Order: " + order + "</li>");
-            $(".order-details").append("<li>Location: " + location + "</li>");
-
-            $(".order-number").text("ORD-" + orderNumber);
-
-            $(".success-message").addClass("show");
-
-            // Hide success message after 5 seconds
-            setTimeout(function() {
-                $(".success-message").removeClass("show");
-            }, 5000);
-        }
-
-        function sendTelegramMessage(message) {
-            var telegramBotToken = "6351918844:AAGcj7hXJie0jFm_-7ZElanCretnIY7Kufg";
-            var telegramChatId = "5879421948";
-
-            var telegramApiUrl = "https://api.telegram.org/bot" + telegramBotToken + "/sendMessage";
-
-            $.ajax({
-                type: "POST",
-                url: telegramApiUrl,
-                data: {
-                    chat_id: telegramChatId,
-                    text: message
-                },
-                success: function(response) {
-                    console.log("Telegram message sent successfully");
-                },
-                error: function(error) {
-                    console.error("Error sending Telegram message: " + error);
-                }
-            });
-        }
-
-        $(document).ready(function() {
-            $("#submit-order").click(function() {
-                sendOrder();
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
