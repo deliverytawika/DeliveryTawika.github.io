@@ -61,8 +61,8 @@
 			position: fixed;
 			top: 10px;
 			right: 10px;
-			background: linear-gradient(to bottom, #0f9d58, #fff);
-			color: #fcb803; /* Neon Orange Color */
+			background: #0f9d58; /* Green Color */
+			color: #fff;
 			padding: 20px;
 			border-radius: 10px;
 			box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
@@ -92,8 +92,8 @@
 		}
 		
 		.order-number {
-			background-color: #0f9d58;
-			color: #fcb803; /* Neon Orange Color */
+			background-color: #fff;
+			color: #0f9d58; /* Green Color */
 			padding: 10px 20px;
 			border-radius: 5px;
 			display: inline-block;
@@ -141,8 +141,9 @@
 			// Send the order data to the server or perform any necessary actions
 			// ...
 
-			// Show success message with submitted data
-			showSuccessMessage(name, phone, order, location);
+			// Show success message with submitted data and order number
+			var orderNumber = generateOrderNumber();
+			showSuccessMessage(name, phone, order, location, orderNumber);
 			
 			// Reset form fields
 			$("#name").val("");
@@ -151,7 +152,12 @@
 			$("#location").val("");
 		}
 
-		function showSuccessMessage(name, phone, order, location) {
+		function generateOrderNumber() {
+			var randomNum = Math.floor(Math.random() * 10000);
+			return "ORD-" + randomNum;
+		}
+
+		function showSuccessMessage(name, phone, order, location, orderNumber) {
 			$(".order-number").text("Order Placed Successfully");
 			
 			$(".order-details").empty();
@@ -159,13 +165,14 @@
 			$(".order-details").append("<li>Phone Number: " + phone + "</li>");
 			$(".order-details").append("<li>Order: " + order + "</li>");
 			$(".order-details").append("<li>Location: " + location + "</li>");
+			$(".order-details").append("<li>Order Number: " + orderNumber + "</li>");
 			
 			$(".success-message").addClass("show");
 			
 			// Hide success message after 5 seconds
 			setTimeout(function() {
 				$(".success-message").removeClass("show");
-			}, 10000);
+			}, 7000);
 		}
 	</script>
 </body>
