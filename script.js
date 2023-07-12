@@ -30,6 +30,14 @@ $(document).ready(function() {
 
         // Reset form fields
         $("#orderForm").trigger("reset");
+        
+        //Show submitted data in small screen
+        $(".submitted-data").empty();
+        $(".submitted-data").append("<li>Name: " + formData.name + "</li>");
+        $(".submitted-data").append("<li>Phone: " + formData.phone + "</li>");
+        $(".submitted-data").append("<li>Order: " + formData.order + "</li>");
+        $(".submitted-data").append("<li>Location: " + formData.location + "</li>");
+        $(".submitted-data").append("<li>Order Number: ORD-" + orderNumber + "</li>");
     });
 
     function showSuccessMessage(name, phone, order, location, orderNumber) {
@@ -70,7 +78,4 @@ $(document).ready(function() {
             }
         });
     }
-});
-    var orderNumber = 1;
-
 });
