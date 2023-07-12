@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    transition: background 0.3s, transform 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #fff;
+    color: #333;
+    transform: scale(1.1);
+}
+
+.main-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button[type="submit"] {
+    background: linear-gradient(to bottom, #fa7e1e, #f22e4b);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s, background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+form button[type="submit"]:hover {
+    background: linear-gradient(to bottom, #f22e4b, #fa7e1e);
+    transform: translateY(-5px);
+}
+
+.success-message {
+    display: none;
+    background-color: #0f9d58;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    width: 300px;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.success-message.show {
+    display: block;
+    animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.order-details {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.order-details li {
+    margin-bottom: 10px;
+}
+
+.order-details li:first-child {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.order-number {
+    background-color: #fff;
+    color: #0f9d58;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
