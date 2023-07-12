@@ -40,7 +40,7 @@
             min-height: 150px;
         }
 
-   button[type="button"] {
+        button[type="button"] {
             background-color: #f22e4b;
             color: #fff;
             border: none;
@@ -52,6 +52,35 @@
             transition: background-color 0.3s ease;
             box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
         }
+
+        .success-window {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #0f9d58;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+            width: 300px;
+            text-align: center;
+        }
+
         .success-message.show {
             display: block;
         }
@@ -86,34 +115,35 @@
 <body>
     <h1> Delivery Tawika</h1>
    
-
     <form>
-        <label for="name">🌐يرجى إدخال اسمك من فضلك:🌐</label>
+        <label for="name">يرجى إدخال اسمك من فضلك:</label>
         <input type="text" id="name" required>
 
-        <label for="phone">🌐يرجى ادخال رقم الهاتف الجوال:🌐</label>
+        <label for="phone">يرجى ادخال رقم الهاتف الجوال:</label>
         <input type="text" id="phone" required>
 
-        <label for="order">🌐يرجى ادخال نوع الطلبية الخاصة بك:🌐</label>
+        <label for="order">يرجى ادخال نوع الطلبية الخاصة بك:</label>
         <textarea id="order" required></textarea>
 
-        <label for="location">🌐يرجى ادخال مكان الطلبية او مكان وصول الطلبية:🌐</label>
+        <label for="location">يرجى ادخال مكان الطلبية او مكان وصول الطلبية:</label>
         <input type="text" id="location" required>
 
-        <button type="button" onclick="sendOrder()">🌐أرسل الطلبية🌐</button>
+        <button id="submit-order" type="button">أرسل الطلبية</button>
     </form>
 
-    <div class="success-message">
-        <h2>✅🌐تمت العملية بنجاح🌐✅</h2>
-        <p>🌐تفاصيل الطلبية الخاصة بك:🌐</p>
-        <ul class="order-details"></ul>
-        <p>🌐رقم الطلبية:🌐 <span class="order-number"></span></p>
+    <div class="success-window">
+        <div class="success-message">
+            <h2>Your order has been submitted successfully!</h2>
+            <p>Order details:</p>
+            <ul class="order-details"></ul>
+            <p>Order number: <span class="order-number"></span></p>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
-
     <script>
+        var orderNumber = 1;
+
         function sendOrder() {
             var name = $("#name").val();
             var phone = $("#phone").val();
@@ -126,8 +156,7 @@
             // ...
 
             // Send the order data to the Telegram bot
-            var orderNumber = generateOrderNumber();
-            var message = "New Order\nName: " + name + "\nPhone Number: " + phone + "\nOrder: " + order + "\nLocation: " + location + "\nOrder Number: " + orderNumber;
+            var message = "New Order\n\nName: " + name + "\nPhone: " + phone + "\nOrder: " + order + "\nLocation: " + location + "\nOrder Number: ORD-" + orderNumber;
             sendTelegramMessage(message);
 
             // Show success message with submitted data and order number
@@ -138,28 +167,26 @@
             $("#phone").val("");
             $("#order").val("");
             $("#location").val("");
-        }
 
-        function generateOrderNumber() {
-            var randomNum = Math.floor(Math.random() * 10000);
-            return "ORD-" + randomNum;
+            // Increment order number for next order
+            orderNumber++;
         }
 
         function showSuccessMessage(name, phone, order, location, orderNumber) {
             $(".order-details").empty();
-            $(".order-details").append("<li>اسم: " + name + "</li>");
-            $(".order-details").append("<li>رقم الهاتف: " + phone + "</li>");
-            $(".order-details").append("<li>نوع الطلبية: " + order + "</li>");
-            $(".order-details").append("<li>مكان الطلبية: " + location + "</li>");
+            $(".order-details").append("<li>Name: " + name + "</li>");
+            $(".order-details").append("<li>Phone: " + phone + "</li>");
+            $(".order-details").append("<li>Order: " + order + "</li>");
+            $(".order-details").append("<li>Location: " + location + "</li>");
 
-            $(".order-number").text(orderNumber);
+            $(".order-number").text("ORD-" + orderNumber);
 
             $(".success-message").addClass("show");
 
             // Hide success message after 5 seconds
             setTimeout(function() {
                 $(".success-message").removeClass("show");
-            }, 7000);
+            }, 5000);
         }
 
         function sendTelegramMessage(message) {
@@ -183,7 +210,12 @@
                 }
             });
         }
+
+        $(document).ready(function() {
+            $("#submit-order").click(function() {
+                sendOrder();
+            });
+        });
     </script>
 </body>
-    </html>
-    
+</html>
