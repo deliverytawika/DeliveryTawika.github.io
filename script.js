@@ -19,7 +19,7 @@ $(document).ready(function() {
         // ...
 
         // Generate a random order number between 1000 and 9999
-        var orderNumber = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+        var orderNumber = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
 
         // Send the order data to the Telegram bot
         var message = "New Order\n\nName: " + formData.name + "\nPhone: " + formData.phone + "\nOrder: " + formData.order + "\nLocation: " + formData.location + "\nOrder Number: ORD-" + orderNumber;
