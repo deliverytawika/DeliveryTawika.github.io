@@ -104,22 +104,22 @@
 	</style>
 </head>
 <body>
-	<h1>Delivery Tawika</h1>
+	<h1>🏍️مع سريع ديما في الوقت 🏍️ </h1>
 
 	<form>
-		<label for="name">☺️يرجى إدخال اسمك من فضلك:</label>
+		<label for="name">يرجى إدخال اسمك من فضلك:</label>
 		<input type="text" id="name" required>
 
-		<label for="phone">☺️يرجى ادخال رقم الهاتف الجوال:</label>
+		<label for="phone">يرجى ادخال رقم الهاتف الجوال:</label>
 		<input type="text" id="phone" required>
 
-		<label for="order">☺️يرجى ادخال نوع الطلبية الخاصة بك:</label>
+		<label for="order">يرجى ادخال نوع الطلبية الخاصة بك:</label>
 		<textarea id="order" required></textarea>
 
-		<label for="location">☺️يرجى ادخال مكان الطلبية او مكان وصول الطلبية:</label>
+		<label for="location">يرجى ادخال مكان الطلبية او مكان وصول الطلبية:</label>
 		<input type="text" id="location" required>
 
-		<button type="button" onclick="sendOrder()">Place Order</button>
+		<button type="button" onclick="sendOrder()">أرسل الطلبية</button>
 	</form>
 
 	<div class="success-message">
@@ -162,10 +162,10 @@
 
 		function showSuccessMessage(name, phone, order, location, orderNumber) {
 			$(".order-details").empty();
-			$(".order-details").append("<li>Name: " + name + "</li>");
-			$(".order-details").append("<li>Phone Number: " + phone + "</li>");
-			$(".order-details").append("<li>Order: " + order + "</li>");
-			$(".order-details").append("<li>Location: " + location + "</li>");
+			$(".order-details").append("<li>اسم: " + name + "</li>");
+			$(".order-details").append("<li>رقم الهاتف: " + phone + "</li>");
+			$(".order-details").append("<li>نوع الطلبية: " + order + "</li>");
+			$(".order-details").append("<li>مكان الطلبية: " + location + "</li>");
 
 			$(".order-number").text(orderNumber);
 
@@ -178,5 +178,4 @@
 		}
 	</script>
 </body>
-	</html>
-	
+</html>
