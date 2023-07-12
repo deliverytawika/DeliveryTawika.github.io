@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Delivery Tawika</title>
+	<title>Delivery Tawika</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
 			background: linear-gradient(to bottom, #fa7e1e, #fff);
 			font-family: Arial, sans-serif;
 			color: #333;
-			padding: 20px;
+			padding: 10px;
 		}
 		
 		form {
-			padding: 20px;
+			padding: 10px;
 			background-color: #fff;
 			border-radius: 10px;
 			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-			max-width: 600px;
+			max-width: 400px;
 			margin: 0 auto;
 		}
 		
 		h1 {
 			text-align: center;
-			margin-bottom: 30px;
+			margin-bottom: 20px;
+			font-size: 22px;
 		}
 		
 		label, input, textarea {
@@ -40,7 +42,7 @@
 		}
 		
 		textarea {
-			min-height: 100px;
+			min-height: 80px;
 		}
 		
 		button[type="button"] {
@@ -70,7 +72,8 @@
 			box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 			display: none;
 			z-index: 999;
-			max-width: 300px;
+			max-width: 250px;
+			font-size: 14px;
 		}
 		
 		.success-message.show {
@@ -89,7 +92,7 @@
 		
 		.order-details li:first-child {
 			font-weight: bold;
-			margin-bottom: 20px;
+			margin-bottom: 15px;
 		}
 		
 		.order-number {
@@ -98,7 +101,7 @@
 			padding: 5px 10px;
 			border-radius: 5px;
 			display: inline-block;
-			font-size: 18px;
+			font-size: 16px;
 			margin-bottom: 10px;
 		}
 	</style>
@@ -131,23 +134,24 @@
 	<script src="script.js"></script>
 
 	<script>
-	// Show success message with submitted data when order is submitted successfully
-	function showSuccessMessage(orderNumber, name, phone, order, location) {
-		$(".order-number").text(orderNumber);
-		
-		$(".order-details").empty();
-		$(".order-details").append("<li>Name: " + name + "</li>");
-		$(".order-details").append("<li>Phone Number: " + phone + "</li>");
-		$(".order-details").append("<li>Order: " + order + "</li>");
-		$(".order-details").append("<li>Location: " + location + "</li>");
-		
-		$(".success-message").addClass("show");
-		
-		// Hide success message after 5 seconds
-		setTimeout(function() {
-			$(".success-message").removeClass("show");
-		}, 5000);
-	}
+		// Show success message with submitted data when order is submitted successfully
+		function showSuccessMessage(orderNumber, name, phone, order, location) {
+			$(".order-number").text(orderNumber);
+			
+			$(".order-details").empty();
+			$(".order-details").append("<li>الإسم: " + name + "</li>");
+			$(".order-details").append("<li>رقم الهاتف الجوال: " + phone + "</li>");
+			$(".order-details").append("<li>الطلبية: " + order + "</li>");
+			$(".order-details").append("<li>مكان الطلبية: " + location + "</li>");
+			
+			$(".success-message").addClass("show");
+			
+			// Hide success message after 5 seconds
+			setTimeout(function() {
+				$(".success-message").removeClass("show");
+			}, 5000);
+		}
 	</script>
 </body>
-</html>
+		</html>
+  
